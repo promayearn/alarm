@@ -75,7 +75,7 @@ public class AlarmActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 alarmManager.cancel(pendingIntent);
-                Log.d(TAG, "Alarm Cancel" + calendar.getTime());
+                Log.d(TAG, "Alarm Cancel " + calendar.getTime());
             }
         });
     }

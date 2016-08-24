@@ -13,7 +13,12 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.content.WakefulBroadcastReceiver;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class AlarmReceiver extends WakefulBroadcastReceiver {
+
+    long ringDelay = 3500;
 
     @Override
     public void onReceive(final Context context, Intent intent) {
@@ -28,8 +33,15 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
         if (alarmUri == null) {
             alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         }
-        Ringtone ringtone = RingtoneManager.getRingtone(context, alarmUri);
+        final Ringtone ringtone = RingtoneManager.getRingtone(context, alarmUri);
+
         ringtone.play();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                ringtone.stop();
+            }
+        };
 
         new Screen().on(context);
 
@@ -38,5 +50,8 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
                 AlarmService.class.getName());
         startWakefulService(context, (intent.setComponent(comp)));
         setResultCode(Activity.RESULT_OK);
+
+        Timer timer = new Timer();
+        timer.schedule(task, ringDelay);
     }
 }
