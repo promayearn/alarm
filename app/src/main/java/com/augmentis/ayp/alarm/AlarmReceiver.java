@@ -3,7 +3,6 @@ package com.augmentis.ayp.alarm;
 /**
  * Created by Chayanit on 8/24/2016.
  */
-
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -18,7 +17,7 @@ import java.util.TimerTask;
 
 public class AlarmReceiver extends WakefulBroadcastReceiver {
 
-    long ringDelay = 3500;
+    long ringDelay = 7000;
 
     @Override
     public void onReceive(final Context context, Intent intent) {

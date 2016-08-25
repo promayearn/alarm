@@ -9,13 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import java.util.Calendar;
-
 import android.annotation.TargetApi;
-import android.app.Activity;
-import android.os.Build;
-import android.widget.ToggleButton;
 
 @TargetApi(23)
 public class AlarmActivity extends AppCompatActivity {

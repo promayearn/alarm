@@ -3,7 +3,6 @@ package com.augmentis.ayp.alarm;
 /**
  * Created by Chayanit on 8/24/2016.
  */
-
 import android.app.IntentService;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
